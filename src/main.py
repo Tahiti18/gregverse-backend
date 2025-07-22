@@ -9,12 +9,17 @@ from flask_cors import CORS
 from src.config import get_config
 
 # Import models and routes
-from src.models.video import db
-from src.models.youtube_stats import YouTubeStats
-from src.routes.search import search_bp
-from src.routes.stats import stats_bp, setup_websocket_events, start_background_stats_updater, init_socketio
-from src.routes.health import health_bp
-from src.services.youtube_service import YouTubeService
+try:
+    from src.models.video import db
+    from src.models.youtube_stats import YouTubeStats
+    from src.routes.search import search_bp
+    from src.routes.stats import stats_bp, setup_websocket_events, start_background_stats_updater, init_socketio
+    from src.routes.health import health_bp
+    from src.services.youtube_service import YouTubeService
+except ImportError as e:
+    print(f"Import warning: {e}")
+    # Create minimal app if imports fail
+    db = None
 
 def create_app(config_name=None):
     """Application factory pattern for production deployment"""

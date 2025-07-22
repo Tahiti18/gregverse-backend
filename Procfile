@@ -1,2 +1,2 @@
-web: python app.py
+web: . /opt/venv/bin/activate && python app.py
 

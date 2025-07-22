@@ -1,16 +1,16 @@
 import os
 from flask import Flask
 
-app = Flask(name)
+app = Flask(__name__)
 
-@app.route(’/’)
+@app.route("/")
 def home():
-return ‘GREGVERSE Backend is LIVE!’
+    return "GREGVERSE is LIVE"
 
-@app.route(’/health’)
+@app.route("/health")
 def health():
-return ‘OK’
+    return "OK"
 
-if name == ‘main’:
-port = int(os.environ.get(‘PORT’, 8080))
-app.run(host=‘0.0.0.0’, port=port)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)

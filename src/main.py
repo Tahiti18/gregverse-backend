@@ -33,7 +33,7 @@ def create_app(config_name=None):
     CORS(app, origins=app.config['CORS_ORIGINS'], supports_credentials=True)
     
     # Initialize SocketIO
-    socketio = SocketIO(app, cors_allowed_origins=app.config['CORS_ORIGINS'], async_mode='threading')
+    socketio = SocketIO(app, cors_allowed_origins=app.config['CORS_ORIGINS'], async_mode='gevent')
     
     # Initialize database
     db.init_app(app)

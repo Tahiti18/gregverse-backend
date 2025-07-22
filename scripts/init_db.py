@@ -15,7 +15,7 @@ load_dotenv()
 
 from src.models.video import db
 from src.models.youtube_stats import YouTubeStats
-from src.main import app
+from main import app
 from sqlalchemy import text
 
 def init_database():
@@ -93,10 +93,6 @@ def init_database():
             
             db.session.commit()
             print("🎯 Database initialization completed successfully!")
-            
-            # Verify tables exist
-            tables = db.engine.table_names()
-            print(f"📋 Created tables: {', '.join(tables)}")
             
         except Exception as e:
             print(f"❌ Database initialization failed: {e}")

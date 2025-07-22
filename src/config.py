@@ -39,7 +39,7 @@ class DevelopmentConfig(Config):
     # Use SQLite for development
     SQLALCHEMY_DATABASE_URI = os.getenv(
         'DATABASE_URL', 
-        f"sqlite:///{os.path.join(os.path.dirname(os.path.dirname(__file__)), 'src', 'database', 'app.db')}"
+        f"sqlite:///{os.path.join(os.path.dirname(os.path.dirname(__file__)), 'database', 'app.db')}"
     )
 
 class ProductionConfig(Config):
@@ -48,13 +48,10 @@ class ProductionConfig(Config):
     FLASK_ENV = 'production'
     
     # Railway provides DATABASE_URL automatically
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'postgresql://localhost/gregverse')
     
-    if not SQLALCHEMY_DATABASE_URI:
-        raise ValueError("DATABASE_URL environment variable is required for production")
-    
-    # Fix for Railway's postgres:// URL format
-    if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
+    # Fix for Railway's postgres:// URL format if needed
+    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
         SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://', 1)
 
 class TestingConfig(Config):

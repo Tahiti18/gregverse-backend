@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from src.models.video import Video, db
+from ..models.video import Video, db
 from datetime import datetime
 import time
 

@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify
-from src.models.video import db
-from src.services.youtube_service import YouTubeService
+from ..models.video import db, Video
+from ..models.youtube_stats import YouTubeStats
+from ..services.youtube_service import YouTubeService
 from datetime import datetime
 import os
+import sys
 
 health_bp = Blueprint('health', __name__)
 
@@ -13,7 +15,8 @@ def health_check():
         'status': 'healthy',
         'timestamp': datetime.utcnow().isoformat(),
         'version': '1.0.0',
-        'environment': os.getenv('FLASK_ENV', 'production')
+        'environment': os.getenv('FLASK_ENV', 'production'),
+        'message': '🔥 GREGVERSE Backend is LIVE!'
     }
     
     # Check database connection
@@ -72,14 +75,11 @@ def health_check():
 @health_bp.route('/detailed', methods=['GET'])
 def detailed_health():
     """Detailed health check with system information"""
-    from src.models.video import Video
-    from src.models.youtube_stats import YouTubeStats
-    
     try:
         detailed_info = {
             'timestamp': datetime.utcnow().isoformat(),
             'system': {
-                'python_version': os.sys.version,
+                'python_version': sys.version,
                 'flask_env': os.getenv('FLASK_ENV', 'production'),
                 'debug_mode': os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
             },

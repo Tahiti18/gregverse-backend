@@ -2,13 +2,13 @@ import os
 import requests
 import time
 from datetime import datetime
-from src.models.youtube_stats import YouTubeStats
-from src.models.video import Video, db
+from ..models.youtube_stats import YouTubeStats
+from ..models.video import Video, db
 
 class YouTubeService:
     def __init__(self):
         self.api_key = os.getenv('YOUTUBE_API_KEY')
-        self.channel_id = os.getenv('GREG_CHANNEL_ID', 'UCGy7SkBjcIAgTiwkXEtPnYg')
+        self.channel_id = os.getenv('YOUTUBE_CHANNEL_ID', 'UCGy7SkBjcIAgTiwkXEtPnYg')
         self.base_url = 'https://www.googleapis.com/youtube/v3'
         
     def get_channel_stats(self):

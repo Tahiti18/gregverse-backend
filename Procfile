@@ -1,2 +1,2 @@
-web: . /opt/venv/bin/activate && python app.py
+web: gunicorn --worker-class gevent -w 1 --bind 0.0.0.0:$PORT main:app
 

@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dotenv import load_dotenv
 load_dotenv()
 
-from src.main import app
+from main import app
 from src.services.youtube_service import YouTubeService
 from src.models.video import Video, db
 

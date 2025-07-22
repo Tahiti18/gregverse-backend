@@ -1,1 +1,37 @@
-Flask==3.0.3
+Flask==2.3.3
+Flask-CORS==4.0.0
+Flask-SocketIO==5.3.6
+Flask-SQLAlchemy==3.0.5
+psycopg2-binary==2.9.7
+python-dotenv==1.0.0
+requests==2.31.0
+gunicorn==21.2.0
+gevent==23.9.1
+gevent-websocket==0.10.1
+redis==5.0.1
+
+# YouTube API
+google-api-python-client==2.97.0
+google-auth==2.22.0
+google-auth-oauthlib==1.0.0
+google-auth-httplib2==0.1.0
+
+# RSS and content parsing
+feedparser==6.0.10
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# AI and ML dependencies (optional)
+openai==0.28.1
+langchain==0.0.350
+pinecone-client==2.2.4
+tiktoken==0.5.1
+
+# Data processing
+pandas==2.1.1
+numpy==1.24.3
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+

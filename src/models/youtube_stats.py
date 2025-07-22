@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from src.models.video import db
+from .video import db
 
 class YouTubeStats(db.Model):
     __tablename__ = 'youtube_stats'

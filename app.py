@@ -1,29 +1,35 @@
-"""
-GREGVERSE Backend - Railway Entry Point
-The ultimate Greg Isenberg archive and tribute backend
-"""
-
+#!/usr/bin/env python3
 import os
-from src.main import create_app
+from flask import Flask, jsonify
+from flask_cors import CORS
 
-# Create app instance for Railway
-app, socketio = create_app()
+app = Flask(name)
+CORS(app)
 
-if __name__ == "__main__":
-    # Get port from Railway environment
-    port = int(os.environ.get('PORT', 5000))
-    
-    print("🔥 GREGVERSE Backend Starting...")
-    print("🎯 Mission: Honor Greg Isenberg's no-gatekeeping philosophy")
-    print("🚀 Building the ultimate entrepreneur resource...")
-    print(f"💫 Starting on port {port}...")
-    
-    # Run with SocketIO for Railway
-    socketio.run(
-        app, 
-        host='0.0.0.0', 
-        port=port,
-        debug=False,
-        allow_unsafe_werkzeug=True
-    )
+@app.route(’/’)
+def home():
+return jsonify({
+‘status’: ‘GREGVERSE Backend is LIVE!’,
+‘message’: ‘Welcome to the ultimate Greg Isenberg archive!’,
+‘version’: ‘1.0.0’
+})
+
+@app.route(’/health’)
+def health():
+return jsonify({
+‘status’: ‘healthy’,
+‘service’: ‘gregverse-backend’,
+‘timestamp’: ‘2025-07-22’
+})
+
+@app.route(’/api/test’)
+def test():
+return jsonify({
+‘message’: ‘GREGVERSE API is working!’,
+‘status’: ‘success’
+})
+
+if name == ‘main’:
+port = int(os.environ.get(‘PORT’, 8080))
+app.run(host=‘0.0.0.0’, port=port, debug=False)
 

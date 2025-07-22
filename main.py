@@ -76,38 +76,24 @@ def create_app(config_name=None):
         except Exception as e:
             print(f"⚠️  Database setup warning: {e}")
     
-    # Add admin routes for initialization
-    @app.route('/admin/init_db', methods=['GET'])
-    def init_db_route():
-        """Initialize database tables"""
-        try:
-            with app.app_context():
-                db.create_all()
-                return jsonify({
-                    'success': True,
-                    'message': 'Database tables created successfully'
-                })
-        except Exception as e:
-            return jsonify({
-                'success': False,
-                'error': str(e)
-            }), 500
-    
-    @app.route('/admin/sync_videos', methods=['GET'])
-    def sync_videos_route():
-        """Sync videos from YouTube API"""
-        try:
-            youtube_service = YouTubeService()
-            synced_count = youtube_service.sync_videos_to_database()
+    # Simple initialization routes
+    @app.route('/init_db_simple')
+    def init_db_simple():
+        with app.app_context():
+            db.create_all()
             return jsonify({
                 'success': True,
-                'message': f'Synced {synced_count} videos successfully!'
+                'message': 'Database tables created successfully'
             })
-        except Exception as e:
-            return jsonify({
-                'success': False,
-                'error': str(e)
-            }), 500
+
+    @app.route('/sync_videos_simple')
+    def sync_videos_simple():
+        youtube_service = YouTubeService()
+        synced_count = youtube_service.sync_videos_to_database()
+        return jsonify({
+            'success': True,
+            'message': f'Synced {synced_count} videos successfully!'
+        })
     
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
@@ -126,10 +112,8 @@ def create_app(config_name=None):
                     'podcast': '/api/podcast/episodes',
                     'chat': '/api/chat/ask',
                     'health': '/health',
-                    'admin': {
-                        'init_db': '/admin/init_db',
-                        'sync_videos': '/admin/sync_videos'
-                    },
+                    'init_db': '/init_db_simple',
+                    'sync_videos': '/sync_videos_simple',
                     'websocket': '/socket.io',
                     'api_docs': '/api'
                 },
@@ -155,10 +139,8 @@ def create_app(config_name=None):
                         'podcast': '/api/podcast/episodes',
                         'chat': '/api/chat/ask',
                         'health': '/health',
-                        'admin': {
-                            'init_db': '/admin/init_db',
-                            'sync_videos': '/admin/sync_videos'
-                        },
+                        'init_db': '/init_db_simple',
+                        'sync_videos': '/sync_videos_simple',
                         'websocket': '/socket.io',
                         'api_docs': '/api'
                     },
@@ -208,8 +190,8 @@ def create_app(config_name=None):
                     'stats': 'GET /api/chat/stats'
                 },
                 'admin': {
-                    'init_db': 'GET /admin/init_db',
-                    'sync_videos': 'GET /admin/sync_videos'
+                    'init_db': 'GET /init_db_simple',
+                    'sync_videos': 'GET /sync_videos_simple'
                 },
                 'health': {
                     'basic': 'GET /health',

@@ -32,8 +32,8 @@ def create_app(config_name=None):
     # Enable CORS for all routes
     CORS(app, origins=app.config['CORS_ORIGINS'], supports_credentials=True)
     
-    # Initialize SocketIO
-    socketio = SocketIO(app, cors_allowed_origins=app.config['CORS_ORIGINS'], async_mode='gevent')
+    # Initialize SocketIO with simple threading mode for Railway compatibility
+    socketio = SocketIO(app, cors_allowed_origins=app.config['CORS_ORIGINS'], async_mode='threading')
     
     # Initialize database
     db.init_app(app)

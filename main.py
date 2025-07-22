@@ -76,6 +76,39 @@ def create_app(config_name=None):
         except Exception as e:
             print(f"⚠️  Database setup warning: {e}")
     
+    # Add admin routes for initialization
+    @app.route('/admin/init_db', methods=['GET'])
+    def init_db_route():
+        """Initialize database tables"""
+        try:
+            with app.app_context():
+                db.create_all()
+                return jsonify({
+                    'success': True,
+                    'message': 'Database tables created successfully'
+                })
+        except Exception as e:
+            return jsonify({
+                'success': False,
+                'error': str(e)
+            }), 500
+    
+    @app.route('/admin/sync_videos', methods=['GET'])
+    def sync_videos_route():
+        """Sync videos from YouTube API"""
+        try:
+            youtube_service = YouTubeService()
+            synced_count = youtube_service.sync_videos_to_database()
+            return jsonify({
+                'success': True,
+                'message': f'Synced {synced_count} videos successfully!'
+            })
+        except Exception as e:
+            return jsonify({
+                'success': False,
+                'error': str(e)
+            }), 500
+    
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
     def serve(path):
@@ -93,6 +126,10 @@ def create_app(config_name=None):
                     'podcast': '/api/podcast/episodes',
                     'chat': '/api/chat/ask',
                     'health': '/health',
+                    'admin': {
+                        'init_db': '/admin/init_db',
+                        'sync_videos': '/admin/sync_videos'
+                    },
                     'websocket': '/socket.io',
                     'api_docs': '/api'
                 },
@@ -118,6 +155,10 @@ def create_app(config_name=None):
                         'podcast': '/api/podcast/episodes',
                         'chat': '/api/chat/ask',
                         'health': '/health',
+                        'admin': {
+                            'init_db': '/admin/init_db',
+                            'sync_videos': '/admin/sync_videos'
+                        },
                         'websocket': '/socket.io',
                         'api_docs': '/api'
                     },
@@ -165,6 +206,10 @@ def create_app(config_name=None):
                     'ask': 'POST /api/chat/ask',
                     'index': 'POST /api/chat/index',
                     'stats': 'GET /api/chat/stats'
+                },
+                'admin': {
+                    'init_db': 'GET /admin/init_db',
+                    'sync_videos': 'GET /admin/sync_videos'
                 },
                 'health': {
                     'basic': 'GET /health',
@@ -273,4 +318,3 @@ if __name__ == '__main__':
         debug=app.config.get('DEBUG', False),
         allow_unsafe_werkzeug=True
     )
-

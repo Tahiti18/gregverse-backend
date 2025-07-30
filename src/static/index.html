@@ -7,520 +7,538 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* Greg Isenberg Website - Blue Primary / Orange Accent Color Scheme */
-
-:root {
-  --primary-blue: #2563eb;
-  --dark-blue: #1e40af;
-  --accent-orange: #f59e0b;
-  --text-light: #ffffff;
-  --text-dark: #1a1a1a;
-  --bg-dark: #121212;
-  --bg-darker: #0a0a0a;
-  --bg-card: #1e1e1e;
-  --bg-card-hover: #2a2a2a;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
-  color: var(--text-light);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
-a {
-  color: var(--primary-blue);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--accent-orange);
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.btn-primary {
-  background-color: var(--primary-blue);
-  color: white;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: var(--dark-blue);
-  color: white;
-}
-
-.btn-secondary {
-  background-color: var(--accent-orange);
-  color: var(--text-dark);
-  border: none;
-}
-
-.btn-secondary:hover {
-  background-color: #e58e09;
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--primary-blue);
-  color: var(--primary-blue);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary-blue);
-  color: white;
-}
-
-header {
-  background-color: rgba(18, 18, 18, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.nav-link {
-  color: var(--text-light);
-  margin: 0 1rem;
-  font-weight: 500;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary-blue);
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.hero {
-  padding: 5rem 0;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 3rem 0 2rem;
-}
-
-.card {
-  background: var(--bg-card);
-  border-radius: 1rem;
-  padding: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background: var(--bg-card-hover);
-}
-
-.card-highlight {
-  border-left: 4px solid var(--primary-blue);
-}
-
-.card-accent {
-  border-left: 4px solid var(--accent-orange);
-}
-
-.stat-card {
-  text-align: center;
-  padding: 2rem;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary-blue);
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.search-bar {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2rem;
-  padding: 0.75rem 1.5rem;
-  width: 100%;
-  color: var(--text-light);
-  font-size: 1rem;
-}
-
-.search-bar:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-}
-
-.search-btn {
-  background: var(--primary-blue);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.search-btn:hover {
-  background: var(--dark-blue);
-}
-
-.tab-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 2rem 0;
-  justify-content: center;
-}
-
-.tab {
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tab:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.tab.active {
-  background: var(--primary-blue);
-  color: white;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 0.5rem;
-}
-
-.badge-blue {
-  background: var(--primary-blue);
-  color: white;
-}
-
-.badge-orange {
-  background: var(--accent-orange);
-  color: var(--text-dark);
-}
-
-footer {
-  background: var(--bg-darker);
-  padding: 3rem 0;
-  margin-top: 5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.social-icon {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0.75rem;
-  transition: color 0.2s ease;
-}
-
-.social-icon:hover {
-  color: var(--primary-blue);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.25rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* YouTube subscribe button */
-.yt-subscribe {
-  background-color: #ff0000;
-  color: white;
-}
-
-.yt-subscribe:hover {
-  background-color: #cc0000;
-}
-
-/* Twitter follow button */
-.tw-follow {
-  background-color: var(--primary-blue);
-  color: white;
-}
-
-.tw-follow:hover {
-  background-color: var(--dark-blue);
-}
-
-/* Progress bars */
-.progress-container {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
-  height: 0.5rem;
-  width: 100%;
-  margin: 0.5rem 0;
-}
-
-.progress-bar {
-  height: 100%;
-  border-radius: 0.5rem;
-  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-orange) 100%);
-}
-
-/* Video and podcast cards */
-.content-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.content-card-img {
-  border-radius: 0.75rem;
-  overflow: hidden;
-  position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-}
-
-.content-card-img img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.content-card-body {
-  padding: 1.5rem;
-  flex-grow: 1;
-}
-
-.content-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-.content-card-text {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1.5rem;
-}
-
-.content-card-meta {
-  display: flex;
-  justify-content: space-between;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.875rem;
-}
-
-/* Guest profiles */
-.guest-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.guest-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid var(--primary-blue);
-}
-
-.guest-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.guest-role {
-  color: var(--accent-orange);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.guest-company {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Quotes */
-blockquote {
-  border-left: 4px solid var(--primary-blue);
-  padding-left: 1.5rem;
-  margin: 2rem 0;
-  font-style: italic;
-}
-
-blockquote footer {
-  margin-top: 1rem;
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.7);
-  background: transparent;
-  padding: 0;
-  border: none;
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  background-color: var(--primary-blue);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -1px;
-}
-
-.timeline-item {
-  padding: 2rem 3rem;
-  position: relative;
-  width: 50%;
-}
-
-.timeline-item:nth-child(odd) {
-  left: 0;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-}
-
-.timeline-dot {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -12px;
-  background-color: var(--accent-orange);
-  border: 4px solid var(--primary-blue);
-  top: 2rem;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -12px;
-}
-
-.timeline-date {
-  color: var(--accent-orange);
-  font-weight: 700;
-}
-
-/* Newsletter subscription */
-.newsletter-form {
-  display: flex;
-  max-width: 500px;
-  margin: 2rem auto;
-}
-
-.newsletter-input {
-  flex-grow: 1;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem 0 0 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-light);
-}
-
-.newsletter-btn {
-  background: var(--primary-blue);
-  color: white;
-  border: none;
-  border-radius: 0 2rem 2rem 0;
-  padding: 0 1.5rem;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.newsletter-btn:hover {
-  background: var(--dark-blue);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-darker);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-blue);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-blue);
-}
-</style>
-
+    <style>
+        * {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+        }
+
+        .nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    position: relative;       /* ✅ ALLOWS ABSOLUTE POSITIONING */
+}
+
+        .nav-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-left: 0;  /* ✅ FIXED */
+}
+
+        .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;  /* ✅ CENTER THE MENU ITEMS */
+    flex: 1;                  /* ✅ TAKE FULL AVAILABLE WIDTH */
+}
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ff6b35;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #2a2a2a;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 8px;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            color: #d0d0d0;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .subscriber-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .youtube-btn {
+            background: #ff0000;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-btn:hover {
+            background: #cc0000;
+            transform: translateY(-1px);
+        }
+
+        .subscriber-count {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35, #ff5722);
+            width: 41.2%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .twitter-btn {
+            background: #1da1f2;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .twitter-btn:hover {
+            background: #1991db;
+            transform: translateY(-1px);
+        }
+
+        .hero-section {
+            padding: 3rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .greg-image {
+    position: absolute;
+    right: 120px;    /* ✅ MOVED 30px RIGHT (was 150px) */
+    top: 80px;       /* ✅ MOVED 120px UP (was 200px) */
+    width: 380px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.3));
+    z-index: 1;
+}
+
+        .hero-content {
+            max-width: 70%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            color: #ff6b35;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #d0d0d0;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            margin-left: 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3.5rem 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #ff6b35;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff6b35;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #ff5722;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .filter-buttons {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;     /* ✅ CENTERS THE BUTTONS */
+    max-width: 700px;            /* ✅ MATCHES SEARCH BAR WIDTH */
+    margin-left: auto;           /* ✅ CENTERS THE CONTAINER */
+    margin-right: auto;          /* ✅ CENTERS THE CONTAINER */
+}
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            color: #d0d0d0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        .stats-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ff6b35;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-desc {
+            color: #d0d0d0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .featured-section {
+            margin: 3rem 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .featured-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .featured-card:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: -8px;
+            right: 15px;
+            background: #ff6b35;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            color: #d0d0d0;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .cta-section {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-subtitle {
+            color: #d0d0d0;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .cta-primary {
+            background: #ff6b35;
+            color: white;
+            border: 2px solid #ff6b35;
+        }
+
+        .cta-primary:hover {
+            background: #ff5722;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .greg-image {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -891,7 +909,7 @@ blockquote footer {
         }
 
         .search-input:focus {
-            border-color: #2563eb;
+            border-color: #ff6b35;
             box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
         }
 
@@ -904,7 +922,7 @@ blockquote footer {
             right: 8px;
             top: 50%;
             transform: translateY(-50%);
-            background: #2563eb;
+            background: #ff6b35;
             border: none;
             border-radius: 50%;
             width: 40px;
@@ -915,7 +933,7 @@ blockquote footer {
         }
 
         .search-btn:hover {
-            background: #1e40af;
+            background: #ff5722;
             transform: translateY(-50%) scale(1.05);
         }
 
@@ -941,8 +959,8 @@ blockquote footer {
 
         .filter-btn:hover, .filter-btn.active {
             background: rgba(255, 107, 53, 0.2);
-            border-color: #2563eb;
-            color: #2563eb;
+            border-color: #ff6b35;
+            color: #ff6b35;
         }
 
         .stats-bar {
@@ -957,7 +975,7 @@ blockquote footer {
         }
 
         .video-count {
-            color: #2563eb;
+            color: #ff6b35;
             font-weight: 600;
         }
 
@@ -1077,7 +1095,7 @@ blockquote footer {
         }
 
         .load-more-btn {
-            background: linear-gradient(45deg, #2563eb, #1e40af);
+            background: linear-gradient(45deg, #ff6b35, #ff5722);
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -1608,14 +1626,14 @@ blockquote footer {
             <div style="max-width: 600px; margin: 0 auto 2rem; position: relative;">
                 <input type="text" id="podcastSearch" placeholder="Search episodes... 'AI tools', 'solo founder', guest names" 
                        style="width: 100%; padding: 1rem 3.5rem 1rem 1.5rem; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 50px; color: white; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-                <button onclick="searchPodcasts()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #2563eb; border: none; border-radius: 50%; width: 40px; height: 40px; color: white; cursor: pointer;">
+                <button onclick="searchPodcasts()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #ff6b35; border: none; border-radius: 50%; width: 40px; height: 40px; color: white; cursor: pointer;">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
             
             <center>
     <div style="display: inline-flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;">
-        <button onclick="filterPodcasts('all')" class="podcast-filter-btn active" style="padding: 0.6rem 1.2rem; background: rgba(255, 107, 53, 0.2); border: 1px solid #2563eb; border-radius: 20px; color: #2563eb; cursor: pointer; font-size: 0.85rem; font-weight: 500;">All Episodes</button>
+        <button onclick="filterPodcasts('all')" class="podcast-filter-btn active" style="padding: 0.6rem 1.2rem; background: rgba(255, 107, 53, 0.2); border: 1px solid #ff6b35; border-radius: 20px; color: #ff6b35; cursor: pointer; font-size: 0.85rem; font-weight: 500;">All Episodes</button>
         <button onclick="filterPodcasts('recent')" class="podcast-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Latest</button>
         <button onclick="filterPodcasts('popular')" class="podcast-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Most Popular</button>
         <button onclick="filterPodcasts('guests')" class="podcast-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">With Guests</button>
@@ -1626,7 +1644,7 @@ blockquote footer {
         <!-- Episode Stats -->
         <div style="text-align: center; margin-bottom: 2rem;">
             <p id="episodeCount" style="color: #c0c0c0; font-size: 1rem;">Loading podcast episodes...</p>
-            <p id="episodeProgress" style="color: #2563eb; font-size: 0.9rem; margin-top: 0.5rem;">Fetching from RSS feed...</p>
+            <p id="episodeProgress" style="color: #ff6b35; font-size: 0.9rem; margin-top: 0.5rem;">Fetching from RSS feed...</p>
         </div>
 
         <!-- Episode Grid -->
@@ -1636,7 +1654,7 @@ blockquote footer {
 
         <!-- Load More Button -->
         <div style="text-align: center;">
-            <button id="loadMoreEpisodes" onclick="loadMoreEpisodes()" style="background: linear-gradient(45deg, #2563eb, #1e40af); color: white; padding: 1rem 2rem; border: none; border-radius: 25px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: none;">
+            <button id="loadMoreEpisodes" onclick="loadMoreEpisodes()" style="background: linear-gradient(45deg, #ff6b35, #ff5722); color: white; padding: 1rem 2rem; border: none; border-radius: 25px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: none;">
                 <i class="fas fa-podcast" style="margin-right: 0.5rem;"></i>
                 Load More Episodes
             </button>
@@ -1740,8 +1758,8 @@ blockquote footer {
                 <div style="padding: 2rem;">
                     <div style="margin-bottom: 1rem;">
                         <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 0.8rem;">
-                            <span style="background: rgba(255, 107, 53, 0.2); color: #2563eb; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">EPISODE</span>
-                            <span style="color: #2563eb; font-size: 0.85rem; margin-left: auto;">${publishDate}</span>
+                            <span style="background: rgba(255, 107, 53, 0.2); color: #ff6b35; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">EPISODE</span>
+                            <span style="color: #ff6b35; font-size: 0.85rem; margin-left: auto;">${publishDate}</span>
                         </div>
                         <h3 style="font-size: 1.2rem; font-weight: 600; color: #ffffff; margin-bottom: 1rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${episode.title}</h3>
                     </div>
@@ -1749,7 +1767,7 @@ blockquote footer {
                     <p style="color: #c0c0c0; line-height: 1.5; margin-bottom: 1.5rem; font-size: 0.9rem;">${cleanDescription}</p>
                     
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
-                        <a href="${episode.link}" target="_blank" style="background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; transition: all 0.3s ease;">
+                        <a href="${episode.link}" target="_blank" style="background: #ff6b35; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; transition: all 0.3s ease;">
                             <i class="fas fa-play"></i>
                             Listen Now
                         </a>
@@ -1837,8 +1855,8 @@ blockquote footer {
             });
             
             event.target.style.background = 'rgba(255, 107, 53, 0.2)';
-            event.target.style.borderColor = '#2563eb';
-            event.target.style.color = '#2563eb';
+            event.target.style.borderColor = '#ff6b35';
+            event.target.style.color = '#ff6b35';
 
             let filtered = allEpisodes;
             
@@ -2201,7 +2219,7 @@ blockquote footer {
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #2563eb;
+            border: 3px solid #ff6b35;
         }
 
         .guest-info {
@@ -2217,7 +2235,7 @@ blockquote footer {
 
         .guest-title {
             font-size: 1rem;
-            color: #2563eb;
+            color: #ff6b35;
             font-weight: 500;
             margin-bottom: 0.3rem;
         }
@@ -2239,7 +2257,7 @@ blockquote footer {
         .guest-tag {
             background: rgba(255, 107, 53, 0.2);
             border: 1px solid rgba(255, 107, 53, 0.3);
-            color: #2563eb;
+            color: #ff6b35;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.75rem;
@@ -2268,13 +2286,13 @@ blockquote footer {
         }
 
         .guest-link {
-            color: #2563eb;
+            color: #ff6b35;
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .guest-link:hover {
-            color: #1e40af;
+            color: #ff5722;
             transform: scale(1.2);
         }
 
@@ -2341,13 +2359,13 @@ blockquote footer {
             <div style="max-width: 600px; margin: 0 auto 2rem; position: relative;">
                 <input type="text" id="ideaSearch" placeholder="Search startup ideas... 'AI', 'no-code', 'SaaS', 'agency'" 
                        style="width: 100%; padding: 1rem 3.5rem 1rem 1.5rem; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 50px; color: white; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-                <button onclick="searchIdeas()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #2563eb; border: none; border-radius: 50%; width: 40px; height: 40px; color: white; cursor: pointer;">
+                <button onclick="searchIdeas()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #ff6b35; border: none; border-radius: 50%; width: 40px; height: 40px; color: white; cursor: pointer;">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
             
             <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                <button onclick="filterIdeas('all')" class="idea-filter-btn active" style="padding: 0.6rem 1.2rem; background: rgba(255, 107, 53, 0.2); border: 1px solid #2563eb; border-radius: 20px; color: #2563eb; cursor: pointer; font-size: 0.85rem; font-weight: 500;">All Ideas</button>
+                <button onclick="filterIdeas('all')" class="idea-filter-btn active" style="padding: 0.6rem 1.2rem; background: rgba(255, 107, 53, 0.2); border: 1px solid #ff6b35; border-radius: 20px; color: #ff6b35; cursor: pointer; font-size: 0.85rem; font-weight: 500;">All Ideas</button>
                 <button onclick="filterIdeas('ai')" class="idea-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">AI & Automation</button>
                 <button onclick="filterIdeas('saas')" class="idea-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">SaaS</button>
                 <button onclick="filterIdeas('nocode')" class="idea-filter-btn" style="padding: 0.6rem 1.2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; color: #c0c0c0; cursor: pointer; font-size: 0.85rem; font-weight: 500;">No-Code</button>
@@ -2361,19 +2379,19 @@ blockquote footer {
         <div style="text-align: center; margin-bottom: 3rem;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 800px; margin: 0 auto;">
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <div style="color: #2563eb; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">50+</div>
+                    <div style="color: #ff6b35; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">50+</div>
                     <div style="color: #c0c0c0; font-size: 0.9rem;">Startup Ideas</div>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <div style="color: #2563eb; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">$1M+</div>
+                    <div style="color: #ff6b35; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">$1M+</div>
                     <div style="color: #c0c0c0; font-size: 0.9rem;">Revenue Potential</div>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <div style="color: #2563eb; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">$500</div>
+                    <div style="color: #ff6b35; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">$500</div>
                     <div style="color: #c0c0c0; font-size: 0.9rem;">Min. Start Cost</div>
                 </div>
                 <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <div style="color: #2563eb; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Free</div>
+                    <div style="color: #ff6b35; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Free</div>
                     <div style="color: #c0c0c0; font-size: 0.9rem;">Implementation Guides</div>
                 </div>
             </div>
@@ -2386,7 +2404,7 @@ blockquote footer {
 
         <!-- Call to Action -->
         <div style="text-align: center; margin-top: 3rem;">
-            <a href="https://www.gregisenberg.com/30startupideas" target="_blank" style="background: linear-gradient(45deg, #2563eb, #1e40af); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-size: 1rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+            <a href="https://www.gregisenberg.com/30startupideas" target="_blank" style="background: linear-gradient(45deg, #ff6b35, #ff5722); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-size: 1rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
                 <i class="fas fa-download"></i>
                 Get Greg's Full 30 Startup Ideas Database
             </a>
@@ -2554,7 +2572,7 @@ blockquote footer {
             ideaElement.innerHTML = `
                 <div style="padding: 2rem;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                        <span style="background: rgba(255, 107, 53, 0.2); color: #2563eb; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${idea.category}</span>
+                        <span style="background: rgba(255, 107, 53, 0.2); color: #ff6b35; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">${idea.category}</span>
                         <span style="color: #10b981; font-weight: 600; font-size: 0.9rem;">${idea.potential}</span>
                     </div>
                     
@@ -2577,7 +2595,7 @@ blockquote footer {
                         </div>
                         <div>
                             <span style="color: #888; display: block;">Source:</span>
-                            <a href="${idea.sourceLink}" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.8rem;">View Video</a>
+                            <a href="${idea.sourceLink}" target="_blank" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 0.8rem;">View Video</a>
                         </div>
                     </div>
                     
@@ -2588,7 +2606,7 @@ blockquote footer {
                     </div>
                     
                     <div style="display: flex; gap: 0.8rem;">
-                        <button onclick="bookmarkIdea('${idea.title}')" style="background: rgba(255, 107, 53, 0.2); color: #2563eb; padding: 0.6rem 1.2rem; border: 1px solid #2563eb; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;">
+                        <button onclick="bookmarkIdea('${idea.title}')" style="background: rgba(255, 107, 53, 0.2); color: #ff6b35; padding: 0.6rem 1.2rem; border: 1px solid #ff6b35; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;">
                             <i class="fas fa-bookmark"></i>
                             Save Idea
                         </button>
@@ -2643,8 +2661,8 @@ blockquote footer {
             });
             
             event.target.style.background = 'rgba(255, 107, 53, 0.2)';
-            event.target.style.borderColor = '#2563eb';
-            event.target.style.color = '#2563eb';
+            event.target.style.borderColor = '#ff6b35';
+            event.target.style.color = '#ff6b35';
 
             let filtered = allIdeas;
             
@@ -3697,7 +3715,7 @@ blockquote footer {
 .badge {
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -3744,12 +3762,12 @@ blockquote footer {
 .stat-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .stat-icon {
     font-size: 2.5rem;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 1rem;
 }
 
@@ -3792,12 +3810,12 @@ blockquote footer {
 .company-card:hover, .tool-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .company-card.featured, .tool-card.featured {
     background: linear-gradient(135deg, #2a1a0a, #3a2a1a);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .company-header, .tool-header {
@@ -3810,7 +3828,7 @@ blockquote footer {
 .company-logo, .tool-logo {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -3860,7 +3878,7 @@ blockquote footer {
 
 .company-role, .tool-category {
     font-size: 0.9rem;
-    color: #2563eb;
+    color: #ff6b35;
     font-weight: 500;
     margin-bottom: 1rem;
 }
@@ -3903,7 +3921,7 @@ blockquote footer {
 
 .tag, .use-case {
     background: rgba(255, 107, 53, 0.2);
-    color: #2563eb;
+    color: #ff6b35;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -3940,14 +3958,14 @@ blockquote footer {
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background: #2563eb;
-    border-color: #2563eb;
+    background: #ff6b35;
+    border-color: #ff6b35;
     color: white;
 }
 
 /* Buttons */
 .btn-primary {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
     padding: 0.8rem 1.5rem;
     border: none;
@@ -3980,8 +3998,8 @@ blockquote footer {
 }
 
 .btn-secondary:hover {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: #ff6b35;
+    color: #ff6b35;
 }
 
 .btn-primary.large, .btn-secondary.large {
@@ -4026,13 +4044,13 @@ blockquote footer {
 }
 
 .insight-card:hover, .philosophy-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-3px);
 }
 
 .insight-icon, .philosophy-icon {
     font-size: 2rem;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 1rem;
 }
 
@@ -4045,7 +4063,7 @@ blockquote footer {
 
 /* Section CTA */
 .section-cta {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 16px;
     padding: 3rem;
     text-align: center;
@@ -4073,7 +4091,7 @@ blockquote footer {
 
 .cta-actions .btn-primary {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .cta-actions .btn-secondary {
@@ -4084,7 +4102,7 @@ blockquote footer {
 
 .cta-actions .btn-secondary:hover {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
     border-color: white;
 }
 
@@ -5158,7 +5176,7 @@ This is the exact playbook I used (and you can copy):
 
 .tweet-card.viral {
     background: linear-gradient(135deg, #2a1a1a, #3a2a2a);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .tweet-card.thread {
@@ -5167,7 +5185,7 @@ This is the exact playbook I used (and you can copy):
 
 .newsletter-card.featured {
     background: linear-gradient(135deg, #2a1a0a, #3a2a1a);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 /* Tweet Header */
@@ -5241,7 +5259,7 @@ This is the exact playbook I used (and you can copy):
 }
 
 .viral-badge {
-    background: #2563eb;
+    background: #ff6b35;
     color: white;
     padding: 0.2rem 0.6rem;
     border-radius: 10px;
@@ -5331,7 +5349,7 @@ This is the exact playbook I used (and you can copy):
 
 .highlight {
     background: rgba(255, 107, 53, 0.2);
-    color: #2563eb;
+    color: #ff6b35;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -5359,7 +5377,7 @@ This is the exact playbook I used (and you can copy):
 }
 
 .engagement-stats i, .newsletter-stats i {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .engagement-actions, .newsletter-actions {
@@ -5395,13 +5413,13 @@ This is the exact playbook I used (and you can copy):
 }
 
 .related-content-btn:hover {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: #ff6b35;
+    color: #ff6b35;
 }
 
 /* Newsletter specific styling */
 .issue-number {
-    background: #2563eb;
+    background: #ff6b35;
     color: white;
     padding: 0.2rem 0.6rem;
     border-radius: 10px;
@@ -5487,7 +5505,7 @@ This is the exact playbook I used (and you can copy):
 }
 
 .newsletter-cta {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
 }
 
 .cta-content h3 {
@@ -5551,8 +5569,8 @@ This is the exact playbook I used (and you can copy):
 }
 
 .load-more-btn:hover {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: #ff6b35;
+    color: #ff6b35;
     transform: translateY(-2px);
 }
 
@@ -6887,7 +6905,7 @@ document.addEventListener('DOMContentLoaded', function() {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(to bottom, #2563eb, #f59e0b);
+    background: linear-gradient(to bottom, #ff6b35, #f7931e);
     transform: translateX(-50%);
     border-radius: 2px;
 }
@@ -6916,7 +6934,7 @@ document.addEventListener('DOMContentLoaded', function() {
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -6946,11 +6964,11 @@ document.addEventListener('DOMContentLoaded', function() {
 .timeline-item:hover .timeline-content {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .timeline-badge {
-    background: #2563eb;
+    background: #ff6b35;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -6985,7 +7003,7 @@ document.addEventListener('DOMContentLoaded', function() {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -7046,7 +7064,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .moment-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -7070,7 +7088,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .metric-card {
     background: rgba(255, 107, 53, 0.1);
-    border: 1px solid #2563eb;
+    border: 1px solid #ff6b35;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
@@ -7079,7 +7097,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .metric-value, .impact-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -7104,7 +7122,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .step-number {
     width: 30px;
     height: 30px;
-    background: #2563eb;
+    background: #ff6b35;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -7141,7 +7159,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .company-logo-advisory {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -7182,12 +7200,12 @@ document.addEventListener('DOMContentLoaded', function() {
 .quote-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .quote-card.featured {
     background: linear-gradient(135deg, #2a1a0a, #3a2a1a);
-    border-color: #2563eb;
+    border-color: #ff6b35;
 }
 
 .quote-content {
@@ -7211,7 +7229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     font-weight: 500;
     margin: 0;
     padding-left: 1rem;
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #ff6b35;
 }
 
 .quote-meta {
@@ -7231,7 +7249,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .source-platform {
     font-weight: 600;
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 0.9rem;
 }
 
@@ -7254,7 +7272,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .quote-stats i {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .quote-actions {
@@ -7279,8 +7297,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .share-btn:hover {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: #ff6b35;
+    color: #ff6b35;
 }
 
 .save-btn:hover {
@@ -7325,7 +7343,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .pillar-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-3px);
 }
 
@@ -7338,7 +7356,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .pillar-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -7372,7 +7390,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .principle {
     background: rgba(255, 107, 53, 0.2);
-    color: #2563eb;
+    color: #ff6b35;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -7380,7 +7398,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .pillar-expand {
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 1.2rem;
 }
 
@@ -7406,7 +7424,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .example h6 {
-    color: #2563eb;
+    color: #ff6b35;
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -7425,7 +7443,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .example li::before {
     content: '→';
-    color: #2563eb;
+    color: #ff6b35;
     position: absolute;
     left: 0;
 }
@@ -7467,14 +7485,14 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .category-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-3px);
 }
 
 .category-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -7498,7 +7516,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Quote of the Day */
 .quote-of-day {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 16px;
     padding: 3rem;
     text-align: center;
@@ -7535,7 +7553,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .new-quote-btn {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 20px;
@@ -8644,7 +8662,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .demo-avatar {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -8718,11 +8736,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .demo-message.user .message-content {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
 }
 
 .message-content strong {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .message-content a {
@@ -8745,7 +8763,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .typing-indicator span {
     width: 8px;
     height: 8px;
-    background: #2563eb;
+    background: #ff6b35;
     border-radius: 50%;
     animation: typing 1.4s infinite ease-in-out;
 }
@@ -8782,7 +8800,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .send-btn {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border: none;
     border-radius: 50%;
     color: white;
@@ -8808,7 +8826,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -8850,7 +8868,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .question-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
 }
@@ -8858,7 +8876,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .question-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -8899,11 +8917,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .question-stats i {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .question-arrow {
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 1.2rem;
     opacity: 0;
     transition: all 0.3s ease;
@@ -8934,7 +8952,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .kb-stat .stat-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -8988,7 +9006,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .step-number {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -9007,13 +9025,13 @@ document.addEventListener('DOMContentLoaded', function() {
     width: 60px;
     height: 60px;
     background: rgba(255, 107, 53, 0.2);
-    border: 2px solid #2563eb;
+    border: 2px solid #ff6b35;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 1rem;
 }
 
@@ -9037,7 +9055,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .tech-details span {
     background: rgba(255, 107, 53, 0.2);
-    color: #2563eb;
+    color: #ff6b35;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -9045,13 +9063,13 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .flow-arrow {
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 2rem;
 }
 
 /* Beta Access */
 .beta-access {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 16px;
     padding: 3rem;
     text-align: center;
@@ -9136,7 +9154,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .beta-submit:hover {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
     border-color: white;
 }
 
@@ -9165,7 +9183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .story-badge {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -9198,7 +9216,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .story-text blockquote {
     background: rgba(255, 107, 53, 0.1);
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #ff6b35;
     padding: 1.5rem;
     margin: 2rem 0;
     font-style: italic;
@@ -9222,7 +9240,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .highlight-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -9265,7 +9283,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .journey-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -9304,7 +9322,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .impact-stat .impact-number {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 0.3rem;
 }
 
@@ -9326,12 +9344,12 @@ document.addEventListener('DOMContentLoaded', function() {
     gap: 1rem;
     font-size: 2rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 1rem;
 }
 
 .promptlink-logo i {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -9359,7 +9377,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .achievement-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -9402,7 +9420,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .agent-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -9425,7 +9443,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .flow-connector {
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 1.2rem;
 }
 
@@ -9448,7 +9466,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .demo-stats .stat-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -9498,7 +9516,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .vision-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -9551,7 +9569,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .tech-label {
-    color: #2563eb;
+    color: #ff6b35;
     font-weight: 600;
 }
 
@@ -9569,7 +9587,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .impact-numbers .impact-number .number {
     font-size: 2rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 0.5rem;
 }
 
@@ -9580,7 +9598,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Final CTA */
 .final-cta {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 16px;
     padding: 3rem;
     text-align: center;
@@ -9609,7 +9627,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .cta-buttons .btn-primary {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .cta-buttons .btn-secondary {
@@ -9620,7 +9638,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .cta-buttons .btn-secondary:hover {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .cta-note {
@@ -9805,7 +9823,7 @@ function showChatPreview(question) {
     chatPreview.className = 'chat-preview';
     chatPreview.style.cssText = `
         background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-        border: 2px solid #2563eb;
+        border: 2px solid #ff6b35;
         border-radius: 16px;
         width: 90%;
         max-width: 500px;
@@ -9826,7 +9844,7 @@ function showChatPreview(question) {
             <div style="background: #3a3a3a; padding: 1rem; border-radius: 12px; margin-bottom: 1rem;">
                 <strong style="color: white;">${question}</strong>
             </div>
-            <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid #2563eb; padding: 1rem; border-radius: 12px;">
+            <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid #ff6b35; padding: 1rem; border-radius: 12px;">
                 <p style="color: white; margin: 0 0 1rem;">This feature is currently in development. GregQ will be able to answer this question by searching through:</p>
                 <ul style="color: #b0b0b0; margin: 0; padding-left: 1.5rem;">
                     <li>659+ YouTube videos with transcripts</li>
@@ -9837,7 +9855,7 @@ function showChatPreview(question) {
             </div>
         </div>
         <div style="padding: 1.5rem; border-top: 1px solid #444; text-align: center;">
-            <button onclick="requestBetaAccess()" style="background: linear-gradient(135deg, #2563eb, #f59e0b); color: white; border: none; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; cursor: pointer;">
+            <button onclick="requestBetaAccess()" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; border: none; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; cursor: pointer;">
                 Get Beta Access
             </button>
         </div>
@@ -10695,7 +10713,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .stat-item .stat-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -10729,7 +10747,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Universal Search Interface */
 .universal-search {
     background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
-    border: 2px solid #2563eb;
+    border: 2px solid #ff6b35;
     border-radius: 16px;
     padding: 3rem;
 }
@@ -10764,7 +10782,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .search-input:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #ff6b35;
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
 }
 
@@ -10775,7 +10793,7 @@ document.addEventListener('DOMContentLoaded', function() {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border: none;
     border-radius: 50%;
     color: white;
@@ -10823,7 +10841,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .suggestion-item i {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .search-filters {
@@ -10863,8 +10881,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: #2563eb;
-    border-color: #2563eb;
+    background: #ff6b35;
+    border-color: #ff6b35;
     color: white;
     transform: translateY(-2px);
 }
@@ -10886,7 +10904,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .search-features .feature-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
 }
@@ -10894,7 +10912,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .search-features .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -10919,21 +10937,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .feature-example {
     background: rgba(255, 107, 53, 0.1);
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #ff6b35;
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 4px;
 }
 
 .feature-example strong {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .feature-action {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #2563eb;
+    color: #ff6b35;
     font-weight: 500;
     margin-top: 1rem;
 }
@@ -10979,7 +10997,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .topic-bar {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     height: 40px;
     border-radius: 20px;
     display: flex;
@@ -11032,7 +11050,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .metric-value {
     font-size: 2rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 0.5rem;
 }
 
@@ -11067,7 +11085,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .action-card:hover {
-    border-color: #2563eb;
+    border-color: #ff6b35;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
 }
@@ -11075,7 +11093,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .action-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -11103,7 +11121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .action-arrow {
-    color: #2563eb;
+    color: #ff6b35;
     font-size: 1rem;
     opacity: 0;
     transition: all 0.3s ease;
@@ -11143,7 +11161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .footer-title i {
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .footer-links {
@@ -11172,7 +11190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .footer-link i {
     width: 20px;
     text-align: center;
-    color: #2563eb;
+    color: #ff6b35;
 }
 
 .footer-link span:first-of-type {
@@ -11189,7 +11207,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Footer Newsletter */
 .footer-newsletter {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     border-radius: 16px;
     padding: 2rem;
     color: white;
@@ -11226,7 +11244,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .newsletter-btn {
     background: white;
-    color: #2563eb;
+    color: #ff6b35;
     border: none;
     padding: 1rem 2rem;
     border-radius: 25px;
@@ -11362,7 +11380,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .project-stat .stat-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #ff6b35;
     margin-bottom: 0.3rem;
 }
 
@@ -11387,7 +11405,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .tech-tag {
     background: rgba(255, 107, 53, 0.2);
-    color: #2563eb;
+    color: #ff6b35;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -11402,18 +11420,18 @@ document.addEventListener('DOMContentLoaded', function() {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #2563eb;
+    color: #ff6b35;
     text-decoration: none;
     font-weight: 600;
     padding: 0.8rem 1.5rem;
-    border: 2px solid #2563eb;
+    border: 2px solid #ff6b35;
     border-radius: 25px;
     transition: all 0.3s ease;
     justify-content: center;
 }
 
 .promptlink-link:hover {
-    background: #2563eb;
+    background: #ff6b35;
     color: white;
     transform: translateY(-2px);
 }
@@ -11470,13 +11488,13 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .back-to-top:hover {
-    border-color: #2563eb;
-    color: #2563eb;
+    border-color: #ff6b35;
+    color: #ff6b35;
     transform: translateY(-2px);
 }
 
 .feedback-btn {
-    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: white;
     border: none;
     cursor: pointer;
@@ -11684,7 +11702,7 @@ function showSearchResults(query) {
     const resultsModal = document.createElement('div');
     resultsModal.style.cssText = `
         background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-        border: 2px solid #2563eb;
+        border: 2px solid #ff6b35;
         border-radius: 16px;
         width: 90%;
         max-width: 800px;
@@ -11703,12 +11721,12 @@ function showSearchResults(query) {
         </div>
         <div style="padding: 2rem; max-height: 500px; overflow-y: auto;">
             <div style="text-align: center; padding: 3rem;">
-                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2563eb, #f59e0b); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ff6b35, #f7931e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
                     <i class="fas fa-cogs" style="font-size: 2rem; color: white;"></i>
                 </div>
                 <h4 style="color: white; margin-bottom: 1rem;">Search Engine Coming Soon!</h4>
                 <p style="color: #b0b0b0; margin-bottom: 2rem;">Our AI-powered universal search is currently in development. This feature will search across all 50,000+ data points in Greg's content universe.</p>
-                <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid #2563eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid #ff6b35; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
                     <p style="color: white; margin: 0;"><strong>Your search would include:</strong></p>
                     <ul style="color: #b0b0b0; margin: 0.5rem 0 0; padding-left: 1.5rem;">
                         <li>659+ YouTube videos with transcripts</li>
@@ -11721,7 +11739,7 @@ function showSearchResults(query) {
             </div>
         </div>
         <div style="padding: 1.5rem; border-top: 1px solid #444; text-align: center;">
-            <button onclick="requestSearchAccess()" style="background: linear-gradient(135deg, #2563eb, #f59e0b); color: white; border: none; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; cursor: pointer;">
+            <button onclick="requestSearchAccess()" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; border: none; padding: 1rem 2rem; border-radius: 25px; font-weight: 600; cursor: pointer;">
                 <i class="fas fa-bell mr-2"></i>Get Notified When Ready
             </button>
         </div>

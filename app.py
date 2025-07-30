@@ -1,15 +1,21 @@
 import os
-from flask import Flask
+from flask import Flask, send_from_directory
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "GREGVERSE is LIVE"
+    # Serve your HTML file instead of plain text
+    return send_from_directory('src/static', 'index.html')
 
 @app.route("/health")
 def health():
     return "OK"
+
+# Add this route to serve static files (CSS, JS, images)
+@app.route("/<path:path>")
+def serve_static(path):
+    return send_from_directory('src/static', path)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))

@@ -8,6 +8,107 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .color-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .color-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .old-colors {
+            border-left: 4px solid #ff6b35;
+        }
+        .new-colors {
+            border-left: 4px solid #2563eb;
+        }
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-right: 1rem;
+            vertical-align: middle;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl font-bold text-center mb-8">
+            <i class="fas fa-palette"></i> Gregverse Updated CSS
+        </h1>
+        
+        <div class="text-center mb-8">
+            <p class="text-xl text-gray-300">Updated color scheme: Blue Primary + Orange Accent</p>
+        </div>
+
+        <div class="color-demo">
+            <div class="color-card old-colors">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-times-circle text-red-400"></i> Old Colors (Orange Heavy)
+                </h3>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #ff6b35;"></div>
+                    <code>#ff6b35</code> - Primary Orange
+                </div>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #ff5722;"></div>
+                    <code>#ff5722</code> - Secondary Orange
+                </div>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #f7931e;"></div>
+                    <code>#f7931e</code> - Amber Orange
+                </div>
+                <p class="text-sm text-gray-400">Problem: Orange overload, poor visual hierarchy</p>
+            </div>
+
+            <div class="color-card new-colors">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-check-circle text-green-400"></i> New Colors (Balanced)
+                </h3>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #2563eb;"></div>
+                    <code>#2563eb</code> - Blue Primary
+                </div>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #1e40af;"></div>
+                    <code>#1e40af</code> - Dark Blue
+                </div>
+                <div class="mb-4">
+                    <div class="color-swatch" style="background: #f59e0b;"></div>
+                    <code>#f59e0b</code> - Golden Orange Accent
+                </div>
+                <p class="text-sm text-gray-400">Solution: Blue primary, orange as accent only</p>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">Complete Updated CSS</h2>
+            <p class="text-gray-300 mb-4">Copy this CSS and replace your existing styles:</p>
+            
+            <pre><code>&lt;style&gt;
         * {
             font-family: 'Playfair Display', serif;
         }
@@ -35,29 +136,29 @@
         }
 
         .nav-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    position: relative;       /* ✅ ALLOWS ABSOLUTE POSITIONING */
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
 
         .nav-logo {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    margin-left: 0;  /* ✅ FIXED */
-}
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            margin-left: 0;
+        }
 
         .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    justify-content: center;  /* ✅ CENTER THE MENU ITEMS */
-    flex: 1;                  /* ✅ TAKE FULL AVAILABLE WIDTH */
-}
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            justify-content: center;
+            flex: 1;
+        }
 
         .nav-item {
             position: relative;
@@ -84,7 +185,7 @@
             top: 100%;
             left: 0;
             background: #2a2a2a;
-            border: 1px solid rgba(255, 107, 53, 0.3);
+            border: 1px solid rgba(37, 99, 235, 0.3);
             border-radius: 8px;
             min-width: 250px;
             opacity: 0;
@@ -111,7 +212,7 @@
         }
 
         .dropdown-item:hover {
-            background: rgba(255, 107, 53, 0.1);
+            background: rgba(37, 99, 235, 0.1);
             color: #2563eb;
         }
 
@@ -210,14 +311,14 @@
         }
 
         .greg-image {
-    position: absolute;
-    right: 120px;    /* ✅ MOVED 30px RIGHT (was 150px) */
-    top: 80px;       /* ✅ MOVED 120px UP (was 200px) */
-    width: 380px;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.3));
-    z-index: 1;
-}
+            position: absolute;
+            right: 120px;
+            top: 80px;
+            width: 380px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.3));
+            z-index: 1;
+        }
 
         .hero-content {
             max-width: 70%;
@@ -225,8 +326,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 107, 53, 0.2);
-            border: 1px solid rgba(255, 107, 53, 0.4);
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
             color: #2563eb;
             padding: 0.5rem 1.2rem;
             border-radius: 25px;
@@ -273,7 +374,7 @@
 
         .search-input:focus {
             border-color: #2563eb;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
         }
 
         .search-input::placeholder {
@@ -301,15 +402,15 @@
         }
 
         .filter-buttons {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;     /* ✅ CENTERS THE BUTTONS */
-    max-width: 700px;            /* ✅ MATCHES SEARCH BAR WIDTH */
-    margin-left: auto;           /* ✅ CENTERS THE CONTAINER */
-    margin-right: auto;          /* ✅ CENTERS THE CONTAINER */
-}
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .filter-btn {
             padding: 0.6rem 1.2rem;
@@ -324,7 +425,7 @@
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(255, 107, 53, 0.2);
+            background: rgba(37, 99, 235, 0.2);
             border-color: #2563eb;
             color: #2563eb;
         }
@@ -358,8 +459,8 @@
         }
 
         .stat-card:hover {
-            background: rgba(255, 107, 53, 0.1);
-            border-color: rgba(255, 107, 53, 0.3);
+            background: rgba(37, 99, 235, 0.1);
+            border-color: rgba(37, 99, 235, 0.3);
             transform: translateY(-5px);
         }
 
@@ -411,8 +512,8 @@
         }
 
         .featured-card:hover {
-            background: rgba(255, 107, 53, 0.1);
-            border-color: rgba(255, 107, 53, 0.3);
+            background: rgba(37, 99, 235, 0.1);
+            border-color: rgba(37, 99, 235, 0.3);
             transform: translateY(-5px);
         }
 
@@ -450,8 +551,8 @@
         }
 
         .cta-section {
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid rgba(255, 107, 53, 0.2);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
             border-radius: 20px;
             padding: 2.5rem 2rem;
             text-align: center;
@@ -503,12 +604,12 @@
 
         .cta-secondary {
             background: transparent;
-            color: #2563eb;
-            border: 2px solid #2563eb;
+            color: #f59e0b;
+            border: 2px solid #f59e0b;
         }
 
         .cta-secondary:hover {
-            background: rgba(255, 107, 53, 0.1);
+            background: rgba(245, 158, 11, 0.1);
             transform: translateY(-2px);
         }
 
@@ -537,8 +638,8 @@
             .featured-grid {
                 grid-template-columns: 1fr;
             }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <!-- Navigation Bar -->
